@@ -42,10 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VenueRoom.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="EventRoom.cs" />
+    <Compile Include="OpenCloseTime.cs" />
     <Compile Include="Panel.cs" />
+    <Compile Include="PhysicalAddress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduleableAmmendment.cs" />
     <Compile Include="ScheduleContact.cs" />
     <Compile Include="Venue.cs" />
   </ItemGroup>

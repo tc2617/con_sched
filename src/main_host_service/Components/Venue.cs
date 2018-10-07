@@ -15,6 +15,7 @@ namespace Components
         IPhysicalAddress _Address;
         ICollection<IContact> _Contacts;
         ICollection<IVenueRoom> _Rooms;
+        ICollection<IPhysicalAddress> _ServiceAddresses;
 
         public string Name
         {
@@ -39,14 +40,41 @@ namespace Components
             }
         }
 
-        public ICollection<IPhysicalAddress> ServiceAddresses { get; set; }
+        public ICollection<IPhysicalAddress> ServiceAddresses
+        {
+            get => _ServiceAddresses; set
+            {
+                _ServiceAddresses = value;
+                NotifyPropertyChanged();
+            }
+        }
 
-        public ICollection<IContact> Contacts => _Contacts;
+        public ICollection<IContact> Contacts
+        {
+            get => _Contacts;
+            internal set
+            {
+                _Contacts = value;
+                NotifyPropertyChanged();
+            }
+        }
 
-        public ICollection<IVenueRoom> VenueRooms => _Rooms;
+        public ICollection<IVenueRoom> VenueRooms
+        {
+            get => _Rooms;
+            internal set
+            {
+                _Rooms = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        #region Events
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        void NotifyPropertyChanged([CallerMemberName] string value = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(value));
+        void NotifyPropertyChanged([CallerMemberName]string value = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(value));
+
+        #endregion
     }
 }

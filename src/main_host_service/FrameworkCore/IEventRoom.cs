@@ -28,7 +28,7 @@ namespace Framework.FrameworkCore
         /// <summary>
         /// Scheduled items for the room.
         /// </summary>
-        ICollection<ISchedulableItem> ScheduleItems { get; set; }
+        ICollection<ISchedulableItem> ScheduleItems { get; }
 
         /// <summary>
         /// Allows modification to the scheduler for the room. Such as allow adult track, hard cutoff times, special use
@@ -38,7 +38,7 @@ namespace Framework.FrameworkCore
         /// <summary>
         /// Ordered of items in schedule
         /// </summary>
-        IList<ISchedulableItem> ScheduleOrder { get; }
+        IList<ISchedulableItem> ScheduleOrder { get; set; }
 
         /// <summary>
         /// Adds a break time between schedule items

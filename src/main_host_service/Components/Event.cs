@@ -40,14 +40,42 @@ namespace Components
             }
         }
 
-        public ICollection<IEventRoom> EventRooms => _Rooms;
+        public ICollection<IEventRoom> EventRooms
+        {
+            get => _Rooms;
+            internal set
+            {
+                _Rooms = value;
+                NotifyPropertyChanged();
+            }
+        }
 
-        public ICollection<IVenue> Venues => _Venues;
+        public ICollection<IVenue> Venues
+        {
+            get => _Venues;
+            internal set
+            {
+                _Venues = value;
+                NotifyPropertyChanged();
+            }
+        }
 
-        public ICollection<IScheduleContact> Contacts => _Contacts;
+        public ICollection<IScheduleContact> Contacts
+        {
+            get => _Contacts;
+            internal set
+            {
+                _Contacts = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        #region Events
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        void NotifyPropertyChanged([CallerMemberName] string value = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(value));
+        void NotifyPropertyChanged([CallerMemberName]string value = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(value));
+
+        #endregion
     }
 }

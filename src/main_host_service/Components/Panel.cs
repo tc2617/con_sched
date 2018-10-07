@@ -35,7 +35,13 @@ namespace Components
         }
 
         [DataMember]
-        public ICollection<IScheduleContact> Contacts { get => _Contacts; }
+        public ICollection<IScheduleContact> Contacts { get => _Contacts;
+            internal set
+            {
+                _Contacts = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         [DataMember]
         public decimal Length {
@@ -48,7 +54,15 @@ namespace Components
         }
 
         [DataMember]
-        public ICollection<ISchedulableAmmendment> Ammendments { get => _Ammendments; }
+        public ICollection<ISchedulableAmmendment> Ammendments
+        {
+            get => _Ammendments;
+            internal set
+            {
+                _Ammendments = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         #endregion
 

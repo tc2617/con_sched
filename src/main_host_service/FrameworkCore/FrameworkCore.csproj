@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAddress.cs" />
+    <Compile Include="IPhysicalAddress.cs" />
     <Compile Include="IContact.cs" />
     <Compile Include="IEvent.cs" />
     <Compile Include="IEventRoom.cs" />
     <Compile Include="IOpenClose.cs" />
-    <Compile Include="ISchedulable.cs" />
+    <Compile Include="ISchedulableItem.cs" />
     <Compile Include="ISchedulableAmmendment.cs" />
     <Compile Include="IScheduleContact.cs" />
     <Compile Include="IVenue.cs" />
