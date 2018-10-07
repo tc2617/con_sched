@@ -13,8 +13,6 @@ namespace Framework.FrameworkCore
         string LastName { get; set; }
         string EMail { get; set; }
         string Phone { get; set; }
-        string StreetAddress { get; set; }
-        string City { get; set; }
-        string State { get; set; }
+        IPhysicalAddress PhysicalAddress { get; set; }
     }
 }

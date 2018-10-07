@@ -12,6 +12,8 @@ namespace Framework.FrameworkCore
         SetupLength,
         TearDown,
         TechNotes,
-        Notes
+        Notes,
+        NSFW,
+        Track
     }
 }
