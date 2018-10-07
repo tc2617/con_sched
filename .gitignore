@@ -3,4 +3,8 @@
 ################################################################################
 
 /src/main_host_service/.vs/ConSchedulerBackend/v15/Server/sqlite3
+*\bin
+*\obj
+packages
+!packages\*.target
 *.suo
