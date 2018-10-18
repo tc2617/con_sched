@@ -1,18 +1,19 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Framework.PluginInterfaces;
 
 namespace UT_PluginHost
 {
     [TestClass]
     public class utHostBasic
     {
-        Framework.PluginInterfaces.IPluginService _Host;
+        IPluginService<IServicePlugin> _Host;
         mocks.MockPlugin _Mock;
 
         [TestInitialize]
         public void Init()
         {
-            _Host = new plugin_host_service.PluginHostService();
+            _Host = new plugin_host_service.PluginHostService<IServicePlugin>();
             _Mock = new mocks.MockPlugin();
 
             _Host.Load(_Mock);
@@ -22,7 +23,7 @@ namespace UT_PluginHost
         public void TestAddPlugin()
         {
             var p = new mocks.MockPlugin();
-            var host = new plugin_host_service.PluginHostService();
+            var host = new plugin_host_service.PluginHostService<IServicePlugin>();
             host.Load(p);
 
             Assert.IsTrue(p.State == "Stopped");

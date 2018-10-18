@@ -10,8 +10,8 @@ namespace plugin_host_service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface IPluginHostService : IPluginService
-    {
-        IDictionary<string, IPlugin> Plugins { get; }
+    public interface IPluginHostServiceContract<T> : IPluginService<T> where T : IServicePlugin
+	{
+        IDictionary<string, T> Plugins { get; }
     }
 }

@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace Framework.PluginInterfaces
 {
     [ServiceContract]
-    public interface IPluginService
-    {
+    public interface IPluginService<T> where T : IServicePlugin
+	{
         [OperationContract]
         void Start();
 
@@ -19,6 +19,6 @@ namespace Framework.PluginInterfaces
         [OperationContract]
         void Pause();
 
-        void Load(IPlugin plugin);
+        void Load(T plugin);
     }
 }

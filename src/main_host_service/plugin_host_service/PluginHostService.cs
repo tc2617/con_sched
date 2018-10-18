@@ -11,16 +11,16 @@ using Framework.PluginInterfaces;
 namespace plugin_host_service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
-    public class PluginHostService : IPluginHostService
-    {
-        public IDictionary<string, IPlugin> Plugins { get; private set; }
+    public class PluginHostService<T> : IPluginHostServiceContract<T> where T : IServicePlugin
+	{
+        public IDictionary<string, T> Plugins { get; private set; }
 
         public PluginHostService()
         {
-            Plugins = new ConcurrentDictionary<string, IPlugin>();
+            Plugins = new ConcurrentDictionary<string, T>();
         }
 
-        void OperateOnAll(Action<IPlugin> action)
+        void OperateOnAll(Action<T> action)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace plugin_host_service
 
         public void Pause()
         {
-            OperateOnAll((IPlugin svc) =>
+            OperateOnAll((T svc) =>
             {
                 svc.Pause();
             });
@@ -45,7 +45,7 @@ namespace plugin_host_service
 
         public void Start()
         {
-            OperateOnAll((IPlugin svc) =>
+            OperateOnAll((T svc) =>
             {
                 svc.Start();
             });
@@ -53,13 +53,13 @@ namespace plugin_host_service
 
         public void Stop()
         {
-            OperateOnAll((IPlugin svc) =>
+            OperateOnAll((T svc) =>
             {
                 svc.Stop();
             });
         }
 
-        public void Load(IPlugin plugin)
+        public void Load(T plugin)
         {
             Plugins[plugin.GUID] = plugin;
         }

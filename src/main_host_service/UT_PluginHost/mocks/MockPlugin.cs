@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UT_PluginHost.mocks
 {
-    class MockPlugin : Framework.PluginInterfaces.BasePlugin
+    class MockPlugin : Framework.PluginInterfaces.BaseServicePlugin
     {
         public MockPlugin()
         {
