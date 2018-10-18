@@ -9,6 +9,9 @@ using Framework.FrameworkCore;
 
 namespace Components
 {
+    /// <summary>
+    /// Basic archaic contact information.
+    /// </summary>
     public class Contact : Framework.FrameworkCore.IContact, INotifyPropertyChanged
     {
         string _DisplayName;

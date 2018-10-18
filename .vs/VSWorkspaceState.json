@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\main_host_service",
+    "\\src\\main_host_service\\Components",
+    "\\src\\main_host_service\\FrameworkCore"
+  ],
+  "SelectedNode": "\\src\\main_host_service\\FrameworkCore",
+  "PreviewInSolutionExplorer": false
+}

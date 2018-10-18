@@ -1,15 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Framework.FrameworkCore
 {
-    public interface ISchedulableAmmendment
+    public interface ISchedulableAmmendment : ISchedulableResource
     {
-        ScheduleProperties Property { get; }
-        string Description { get; set; }
-        bool Required { get; set; }
+        /// <summary>
+        /// Optional value specifying what this object's data pertains to
+        /// </summary>
+        ScheduleProperties Property { get; set; }
+        
+        /// <summary>
+        /// Useful name for the entry
+        /// </summary>
+        string Name { get; set; }
+
+        /// <summary>
+        /// What describes the Values for this data.
+        /// </summary>
+        IObjectType ObjectType { get; set; }
+
+        /// <summary>
+        /// Binary data
+        /// </summary>
+        ICollection<object> Value { get; }
     }
 }

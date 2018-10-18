@@ -9,11 +9,12 @@ namespace Framework.FrameworkCore
     public enum ScheduleProperties
     {
         None = 0,
-        SetupLength,
+        Setup,
         TearDown,
         TechNotes,
         Notes,
         NSFW,
-        Track
+        Track,
+        Contact
     }
 }

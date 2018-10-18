@@ -1,77 +1,79 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using Framework.FrameworkCore;
 
 namespace Components
 {
-    [DataContract]
-    public class Panel : Framework.FrameworkCore.ISchedulableItem, INotifyPropertyChanged
-    {
-        #region Properties
+	[DataContract]
+	public class Panel : Framework.FrameworkCore.ISchedulableItem, INotifyPropertyChanged
+	{
+		#region Properties
 
-        string _Name;
-        ICollection<IScheduleContact> _Contacts = new HashSet<IScheduleContact>();
-        decimal _Length;
-        ICollection<ISchedulableAmmendment> _Ammendments = new HashSet<ISchedulableAmmendment>();
+		string _Name;
+		string _Description;
+		decimal _Length;
+		ICollection<ISchedulableResource> _Resources = new HashSet<ISchedulableResource>();
 
-        [DataMember]
-        public string Name
-        {
-            get => _Name;
-            set
-            {
-                if (_Name != value)
-                {
-                    _Name = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
+		[DataMember]
+		public string Name
+		{
+			get => _Name;
+			set
+			{
+				if (_Name != value)
+				{
+					_Name = value;
+					NotifyPropertyChanged();
+				}
+			}
+		}
 
-        [DataMember]
-        public ICollection<IScheduleContact> Contacts { get => _Contacts;
-            internal set
-            {
-                _Contacts = value;
-                NotifyPropertyChanged();
-            }
-        }
+		[DataMember]
+		public string Description
+		{
+			get => _Description;
+			set
+			{
+				if (_Description != value)
+				{
+					_Description = value;
+					NotifyPropertyChanged();
+				}
+			}
+		}
 
-        [DataMember]
-        public decimal Length {
-            get => _Length;
-            set
-            {
-                _Length = value;
-                NotifyPropertyChanged();
-            }
-        }
+		[DataMember]
+		public decimal Duration
+		{
+			get => _Length;
+			set
+			{
+				_Length = value;
+				NotifyPropertyChanged();
+			}
+		}
 
-        [DataMember]
-        public ICollection<ISchedulableAmmendment> Ammendments
-        {
-            get => _Ammendments;
-            internal set
-            {
-                _Ammendments = value;
-                NotifyPropertyChanged();
-            }
-        }
+		[DataMember]
+		public ICollection<ISchedulableResource> Resources
+		{
+			get => _Resources;
+			set
+			{
+				_Resources = value;
+				NotifyPropertyChanged();
+			}
+		}
 
-        #endregion
+		#endregion
 
-        #region Events
+		#region Events
 
-        public event PropertyChangedEventHandler PropertyChanged;
+		public event PropertyChangedEventHandler PropertyChanged;
 
-        void NotifyPropertyChanged([CallerMemberName]string value = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(value));
+		void NotifyPropertyChanged([CallerMemberName]string value = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(value));
 
-        #endregion
-    }
+		#endregion
+	}
 }

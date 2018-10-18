@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Framework.FrameworkCore
 {
-    public interface ISchedulableItem
-    {
-        string Name { get; set; }
-        ICollection<IScheduleContact> Contacts { get; }
-        decimal Length { get; set; }
-        ICollection<ISchedulableAmmendment> Ammendments { get; }
-    }
+	public interface ISchedulableItem
+	{
+		string Name { get; set; }
+		string Description { get; set; }
+		decimal Duration { get; set; }
+		ICollection<ISchedulableResource> Resources { get; }
+	}
 }

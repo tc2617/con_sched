@@ -46,8 +46,10 @@
     <Compile Include="IEvent.cs" />
     <Compile Include="IEventRoom.cs" />
     <Compile Include="IOpenClose.cs" />
+    <Compile Include="IObjectType.cs" />
     <Compile Include="ISchedulableItem.cs" />
     <Compile Include="ISchedulableAmmendment.cs" />
+    <Compile Include="ISchedulableResource.cs" />
     <Compile Include="IScheduleContact.cs" />
     <Compile Include="IVenue.cs" />
     <Compile Include="IVenueRoom.cs" />
