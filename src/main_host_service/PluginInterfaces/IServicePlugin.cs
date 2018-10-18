@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace Framework.PluginInterfaces
 {
-    public interface IPlugin
+    public interface IServicePlugin : IPlugin
     {
-        string Name { get; }
-        string Description { get; }
-        string GUID { get; }
+        string State { get; }
+
+        void Pause();
+
+        void Start();
+
+        void Stop();
     }
 }

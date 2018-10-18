@@ -19,14 +19,5 @@ namespace Framework.PluginInterfaces
 
         [DataMember]
         public string Description { get; protected set; }
-
-        [DataMember]
-        public string State { get; protected set; }
-
-        public abstract void Pause();
-
-        public abstract void Start();
-
-        public abstract void Stop();
     }
 }
