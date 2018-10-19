@@ -5,12 +5,15 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using Framework.PluginInterfaces;
 
-public class Service : IService
+public class Service : IService<Framework.PluginInterfaces.BasePluginService>
 {
+	ServiceHost _PluginService;
+
 	public string GetData(int value)
 	{
-		return string.Format("You entered: {0}", value);
+		return $"You entered: {value}";
 	}
 
 	public CompositeType GetDataUsingDataContract(CompositeType composite)
@@ -24,5 +27,25 @@ public class Service : IService
 			composite.StringValue += "Suffix";
 		}
 		return composite;
+	}
+
+	public void Load(BasePluginService plugin)
+	{
+		return;
+	}
+
+	public void Pause()
+	{
+		Stop();
+	}
+
+	public void Start()
+	{
+		_PluginService = plugin_host_service.CreateWCFService.Start();
+	}
+
+	public void Stop()
+	{
+		_PluginService.Close();
 	}
 }

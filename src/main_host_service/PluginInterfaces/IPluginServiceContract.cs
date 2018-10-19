@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace Framework.PluginInterfaces
 {
-    public interface IPluginService : IPlugin
-    {
-        string State { get; }
-
-        void Pause();
-
+    [ServiceContract]
+    public interface IPluginServiceContract<T> where T : IPluginService
+	{
+        [OperationContract]
         void Start();
 
+        [OperationContract]
         void Stop();
+
+        [OperationContract]
+        void Pause();
+
+        void Load(T plugin);
     }
 }

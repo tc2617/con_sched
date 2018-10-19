@@ -7,13 +7,13 @@ namespace UT_PluginHost
     [TestClass]
     public class utHostBasic
     {
-        IPluginService<IServicePlugin> _Host;
+        IPluginServiceContract<IPluginService> _Host;
         mocks.MockPlugin _Mock;
 
         [TestInitialize]
         public void Init()
         {
-            _Host = new plugin_host_service.PluginHostService<IServicePlugin>();
+            _Host = new plugin_host_service.PluginHostService<IPluginService>();
             _Mock = new mocks.MockPlugin();
 
             _Host.Load(_Mock);
@@ -23,7 +23,7 @@ namespace UT_PluginHost
         public void TestAddPlugin()
         {
             var p = new mocks.MockPlugin();
-            var host = new plugin_host_service.PluginHostService<IServicePlugin>();
+            var host = new plugin_host_service.PluginHostService<IPluginService>();
             host.Load(p);
 
             Assert.IsTrue(p.State == "Stopped");
