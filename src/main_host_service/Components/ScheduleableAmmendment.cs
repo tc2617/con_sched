@@ -11,6 +11,9 @@ namespace Components
 {
 	public class ScheduleableAmmendment : Framework.FrameworkCore.ISchedulableAmmendment, INotifyPropertyChanged
 	{
+		string _Name;
+		IObjectType _ObjectType;
+		ICollection<object> _Value;
 		ScheduleProperties _Property;
 		string _Description;
 		bool _Required;
@@ -50,20 +53,35 @@ namespace Components
 
 		public string Name
 		{
-			get => throw new NotImplementedException();
-			set => throw new NotImplementedException();
+			get => _Name;
+			set
+			{
+				if(_Name != value)
+				{
+					_Name = value;
+					NotifyPropertyChanged();
+				}
+			}
 		}
 
 		public IObjectType ObjectType
 		{
-			get => throw new NotImplementedException();
-			set => throw new NotImplementedException();
+			get => _ObjectType;
+			set
+			{
+				_ObjectType = value;
+				NotifyPropertyChanged();
+			}
 		}
 
 		public ICollection<object> Value
 		{
-			get => throw new NotImplementedException();
-			private set => throw new NotImplementedException();
+			get => _Value;
+			private set
+			{
+				_Value = value;
+				NotifyPropertyChanged();
+			}
 		}
 
 		#region Events

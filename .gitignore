@@ -8,3 +8,5 @@
 packages
 !packages\*.target
 *.suo
+/src/main_host_service/CodeGraphData
+/src/main_host_service/main_host_service/{3F10C71E-A816-4E14-B0E7-EC8D39677B9A}
